@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/SalustianaEvolucionIndiceHumedad_1.js"></script>
+        <script src="data/LaneLateEvolucionIndicedeHumedad_2.js"></script>
+        <script src="data/SalustianaIndicedeHumedad_3.js"></script>
+        <script src="data/LaneLateIndicedeHumedad_4.js"></script>
+        <script src="data/SalustianaEvolucionIndicedevegetacion_5.js"></script>
+        <script src="data/LaneLateEvolucionIndicedeVegetacion_6.js"></script>
+        <script src="data/SalustianaIndicedeVegetacion_7.js"></script>
+        <script src="data/LaneLateIndicedeVegetacion_8.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[37.5203904918864,-5.864698434215508],[37.52722119344401,-5.85106761637081]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleHybrid_0');
+        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
+        var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
+        function pop_SalustianaEvolucionIndiceHumedad_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ENDMI'] !== null ? autolinker.link(feature.properties['ENDMI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SalustianaEvolucionIndiceHumedad_1_0(feature) {
+            if (feature.properties['ENDMI'] >= -0.389826 && feature.properties['ENDMI'] <= -0.314382 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndiceHumedad_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,231,37,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.314382 && feature.properties['ENDMI'] <= -0.238938 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndiceHumedad_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(93,201,98,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.238938 && feature.properties['ENDMI'] <= -0.163494 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndiceHumedad_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,144,141,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.163494 && feature.properties['ENDMI'] <= -0.088049 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndiceHumedad_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,82,139,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.088049 && feature.properties['ENDMI'] <= -0.012605 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndiceHumedad_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,1,84,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_SalustianaEvolucionIndiceHumedad_1');
+        map.getPane('pane_SalustianaEvolucionIndiceHumedad_1').style.zIndex = 401;
+        map.getPane('pane_SalustianaEvolucionIndiceHumedad_1').style['mix-blend-mode'] = 'normal';
+        var layer_SalustianaEvolucionIndiceHumedad_1 = new L.geoJson(json_SalustianaEvolucionIndiceHumedad_1, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_SalustianaEvolucionIndiceHumedad_1',
+            layerName: 'layer_SalustianaEvolucionIndiceHumedad_1',
+            pane: 'pane_SalustianaEvolucionIndiceHumedad_1',
+            onEachFeature: pop_SalustianaEvolucionIndiceHumedad_1,
+            style: style_SalustianaEvolucionIndiceHumedad_1_0,
+        });
+        bounds_group.addLayer(layer_SalustianaEvolucionIndiceHumedad_1);
+        map.addLayer(layer_SalustianaEvolucionIndiceHumedad_1);
+        function pop_LaneLateEvolucionIndicedeHumedad_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ENDMI'] !== null ? autolinker.link(feature.properties['ENDMI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LaneLateEvolucionIndicedeHumedad_2_0(feature) {
+            if (feature.properties['ENDMI'] >= -0.363903 && feature.properties['ENDMI'] <= -0.281871 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeHumedad_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,231,37,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.281871 && feature.properties['ENDMI'] <= -0.199838 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeHumedad_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(93,201,98,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.199838 && feature.properties['ENDMI'] <= -0.117806 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeHumedad_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,144,141,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.117806 && feature.properties['ENDMI'] <= -0.035774 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeHumedad_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,82,139,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDMI'] >= -0.035774 && feature.properties['ENDMI'] <= 0.046258 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeHumedad_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,1,84,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_LaneLateEvolucionIndicedeHumedad_2');
+        map.getPane('pane_LaneLateEvolucionIndicedeHumedad_2').style.zIndex = 402;
+        map.getPane('pane_LaneLateEvolucionIndicedeHumedad_2').style['mix-blend-mode'] = 'normal';
+        var layer_LaneLateEvolucionIndicedeHumedad_2 = new L.geoJson(json_LaneLateEvolucionIndicedeHumedad_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_LaneLateEvolucionIndicedeHumedad_2',
+            layerName: 'layer_LaneLateEvolucionIndicedeHumedad_2',
+            pane: 'pane_LaneLateEvolucionIndicedeHumedad_2',
+            onEachFeature: pop_LaneLateEvolucionIndicedeHumedad_2,
+            style: style_LaneLateEvolucionIndicedeHumedad_2_0,
+        });
+        bounds_group.addLayer(layer_LaneLateEvolucionIndicedeHumedad_2);
+        map.addLayer(layer_LaneLateEvolucionIndicedeHumedad_2);
+        function pop_SalustianaIndicedeHumedad_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NDMI'] !== null ? autolinker.link(feature.properties['NDMI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SalustianaIndicedeHumedad_3_0(feature) {
+            if (feature.properties['NDMI'] >= -0.133760 && feature.properties['NDMI'] <= -0.039952 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeHumedad_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= -0.039952 && feature.properties['NDMI'] <= 0.053857 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeHumedad_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,221,240,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= 0.053857 && feature.properties['NDMI'] <= 0.147666 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeHumedad_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,179,216,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= 0.147666 && feature.properties['NDMI'] <= 0.241475 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeHumedad_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(40,121,185,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= 0.241475 && feature.properties['NDMI'] <= 0.335283 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeHumedad_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_SalustianaIndicedeHumedad_3');
+        map.getPane('pane_SalustianaIndicedeHumedad_3').style.zIndex = 403;
+        map.getPane('pane_SalustianaIndicedeHumedad_3').style['mix-blend-mode'] = 'normal';
+        var layer_SalustianaIndicedeHumedad_3 = new L.geoJson(json_SalustianaIndicedeHumedad_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_SalustianaIndicedeHumedad_3',
+            layerName: 'layer_SalustianaIndicedeHumedad_3',
+            pane: 'pane_SalustianaIndicedeHumedad_3',
+            onEachFeature: pop_SalustianaIndicedeHumedad_3,
+            style: style_SalustianaIndicedeHumedad_3_0,
+        });
+        bounds_group.addLayer(layer_SalustianaIndicedeHumedad_3);
+        map.addLayer(layer_SalustianaIndicedeHumedad_3);
+        function pop_LaneLateIndicedeHumedad_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NDMI'] !== null ? autolinker.link(feature.properties['NDMI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LaneLateIndicedeHumedad_4_0(feature) {
+            if (feature.properties['NDMI'] >= -0.088178 && feature.properties['NDMI'] <= -0.002447 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeHumedad_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= -0.002447 && feature.properties['NDMI'] <= 0.083283 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeHumedad_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,221,240,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= 0.083283 && feature.properties['NDMI'] <= 0.169014 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeHumedad_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,179,216,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= 0.169014 && feature.properties['NDMI'] <= 0.254744 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeHumedad_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(40,121,185,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDMI'] >= 0.254744 && feature.properties['NDMI'] <= 0.340475 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeHumedad_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_LaneLateIndicedeHumedad_4');
+        map.getPane('pane_LaneLateIndicedeHumedad_4').style.zIndex = 404;
+        map.getPane('pane_LaneLateIndicedeHumedad_4').style['mix-blend-mode'] = 'normal';
+        var layer_LaneLateIndicedeHumedad_4 = new L.geoJson(json_LaneLateIndicedeHumedad_4, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_LaneLateIndicedeHumedad_4',
+            layerName: 'layer_LaneLateIndicedeHumedad_4',
+            pane: 'pane_LaneLateIndicedeHumedad_4',
+            onEachFeature: pop_LaneLateIndicedeHumedad_4,
+            style: style_LaneLateIndicedeHumedad_4_0,
+        });
+        bounds_group.addLayer(layer_LaneLateIndicedeHumedad_4);
+        map.addLayer(layer_LaneLateIndicedeHumedad_4);
+        function pop_SalustianaEvolucionIndicedevegetacion_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ENDVI'] !== null ? autolinker.link(feature.properties['ENDVI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SalustianaEvolucionIndicedevegetacion_5_0(feature) {
+            if (feature.properties['ENDVI'] >= -0.375870 && feature.properties['ENDVI'] <= -0.277106 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndicedevegetacion_5',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,252,245,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= -0.277106 && feature.properties['ENDVI'] <= -0.178342 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndicedevegetacion_5',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,234,195,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= -0.178342 && feature.properties['ENDVI'] <= -0.079578 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndicedevegetacion_5',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,200,124,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= -0.079578 && feature.properties['ENDVI'] <= 0.019186 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndicedevegetacion_5',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(42,146,74,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= 0.019186 && feature.properties['ENDVI'] <= 0.117950 ) {
+                return {
+                pane: 'pane_SalustianaEvolucionIndicedevegetacion_5',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_SalustianaEvolucionIndicedevegetacion_5');
+        map.getPane('pane_SalustianaEvolucionIndicedevegetacion_5').style.zIndex = 405;
+        map.getPane('pane_SalustianaEvolucionIndicedevegetacion_5').style['mix-blend-mode'] = 'normal';
+        var layer_SalustianaEvolucionIndicedevegetacion_5 = new L.geoJson(json_SalustianaEvolucionIndicedevegetacion_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_SalustianaEvolucionIndicedevegetacion_5',
+            layerName: 'layer_SalustianaEvolucionIndicedevegetacion_5',
+            pane: 'pane_SalustianaEvolucionIndicedevegetacion_5',
+            onEachFeature: pop_SalustianaEvolucionIndicedevegetacion_5,
+            style: style_SalustianaEvolucionIndicedevegetacion_5_0,
+        });
+        bounds_group.addLayer(layer_SalustianaEvolucionIndicedevegetacion_5);
+        map.addLayer(layer_SalustianaEvolucionIndicedevegetacion_5);
+        function pop_LaneLateEvolucionIndicedeVegetacion_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ENDVI'] !== null ? autolinker.link(feature.properties['ENDVI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LaneLateEvolucionIndicedeVegetacion_6_0(feature) {
+            if (feature.properties['ENDVI'] >= -0.325332 && feature.properties['ENDVI'] <= -0.228246 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeVegetacion_6',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,252,245,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= -0.228246 && feature.properties['ENDVI'] <= -0.131161 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeVegetacion_6',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,234,195,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= -0.131161 && feature.properties['ENDVI'] <= -0.034075 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeVegetacion_6',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,200,124,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= -0.034075 && feature.properties['ENDVI'] <= 0.063010 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeVegetacion_6',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(42,146,74,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ENDVI'] >= 0.063010 && feature.properties['ENDVI'] <= 0.160096 ) {
+                return {
+                pane: 'pane_LaneLateEvolucionIndicedeVegetacion_6',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_LaneLateEvolucionIndicedeVegetacion_6');
+        map.getPane('pane_LaneLateEvolucionIndicedeVegetacion_6').style.zIndex = 406;
+        map.getPane('pane_LaneLateEvolucionIndicedeVegetacion_6').style['mix-blend-mode'] = 'normal';
+        var layer_LaneLateEvolucionIndicedeVegetacion_6 = new L.geoJson(json_LaneLateEvolucionIndicedeVegetacion_6, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_LaneLateEvolucionIndicedeVegetacion_6',
+            layerName: 'layer_LaneLateEvolucionIndicedeVegetacion_6',
+            pane: 'pane_LaneLateEvolucionIndicedeVegetacion_6',
+            onEachFeature: pop_LaneLateEvolucionIndicedeVegetacion_6,
+            style: style_LaneLateEvolucionIndicedeVegetacion_6_0,
+        });
+        bounds_group.addLayer(layer_LaneLateEvolucionIndicedeVegetacion_6);
+        map.addLayer(layer_LaneLateEvolucionIndicedeVegetacion_6);
+        function pop_SalustianaIndicedeVegetacion_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NDVI'] !== null ? autolinker.link(feature.properties['NDVI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SalustianaIndicedeVegetacion_7_0(feature) {
+            if (feature.properties['NDVI'] >= 0.223423 && feature.properties['NDVI'] <= 0.340685 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeVegetacion_7',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.340685 && feature.properties['NDVI'] <= 0.457946 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeVegetacion_7',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.457946 && feature.properties['NDVI'] <= 0.575207 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeVegetacion_7',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.575207 && feature.properties['NDVI'] <= 0.692468 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeVegetacion_7',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.692468 && feature.properties['NDVI'] <= 0.809729 ) {
+                return {
+                pane: 'pane_SalustianaIndicedeVegetacion_7',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_SalustianaIndicedeVegetacion_7');
+        map.getPane('pane_SalustianaIndicedeVegetacion_7').style.zIndex = 407;
+        map.getPane('pane_SalustianaIndicedeVegetacion_7').style['mix-blend-mode'] = 'normal';
+        var layer_SalustianaIndicedeVegetacion_7 = new L.geoJson(json_SalustianaIndicedeVegetacion_7, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_SalustianaIndicedeVegetacion_7',
+            layerName: 'layer_SalustianaIndicedeVegetacion_7',
+            pane: 'pane_SalustianaIndicedeVegetacion_7',
+            onEachFeature: pop_SalustianaIndicedeVegetacion_7,
+            style: style_SalustianaIndicedeVegetacion_7_0,
+        });
+        bounds_group.addLayer(layer_SalustianaIndicedeVegetacion_7);
+        map.addLayer(layer_SalustianaIndicedeVegetacion_7);
+        function pop_LaneLateIndicedeVegetacion_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NDVI'] !== null ? autolinker.link(feature.properties['NDVI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LaneLateIndicedeVegetacion_8_0(feature) {
+            if (feature.properties['NDVI'] >= 0.165722 && feature.properties['NDVI'] <= 0.302006 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeVegetacion_8',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.302006 && feature.properties['NDVI'] <= 0.438289 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeVegetacion_8',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.438289 && feature.properties['NDVI'] <= 0.574572 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeVegetacion_8',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.574572 && feature.properties['NDVI'] <= 0.710856 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeVegetacion_8',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['NDVI'] >= 0.710856 && feature.properties['NDVI'] <= 0.847139 ) {
+                return {
+                pane: 'pane_LaneLateIndicedeVegetacion_8',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_LaneLateIndicedeVegetacion_8');
+        map.getPane('pane_LaneLateIndicedeVegetacion_8').style.zIndex = 408;
+        map.getPane('pane_LaneLateIndicedeVegetacion_8').style['mix-blend-mode'] = 'normal';
+        var layer_LaneLateIndicedeVegetacion_8 = new L.geoJson(json_LaneLateIndicedeVegetacion_8, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_LaneLateIndicedeVegetacion_8',
+            layerName: 'layer_LaneLateIndicedeVegetacion_8',
+            pane: 'pane_LaneLateIndicedeVegetacion_8',
+            onEachFeature: pop_LaneLateIndicedeVegetacion_8,
+            style: style_LaneLateIndicedeVegetacion_8_0,
+        });
+        bounds_group.addLayer(layer_LaneLateIndicedeVegetacion_8);
+        map.addLayer(layer_LaneLateIndicedeVegetacion_8);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Lane Late - Indice de Vegetacion<br /><table><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeVegetacion_8_0170300.png" /></td><td>0,17 - 0,30</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeVegetacion_8_0300441.png" /></td><td>0,30 - 0,44</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeVegetacion_8_0440572.png" /></td><td>0,44 - 0,57</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeVegetacion_8_0570713.png" /></td><td>0,57 - 0,71</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeVegetacion_8_0710854.png" /></td><td>0,71 - 0,85</td></tr></table>': layer_LaneLateIndicedeVegetacion_8,'Salustiana - Indice de Vegetacion<br /><table><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeVegetacion_7_0220340.png" /></td><td>0,22 - 0,34</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeVegetacion_7_0340461.png" /></td><td>0,34 - 0,46</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeVegetacion_7_0460582.png" /></td><td>0,46 - 0,58</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeVegetacion_7_0580693.png" /></td><td>0,58 - 0,69</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeVegetacion_7_0690814.png" /></td><td>0,69 - 0,81</td></tr></table>': layer_SalustianaIndicedeVegetacion_7,'Lane Late - Evolucion Indice de Vegetacion<br /><table><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeVegetacion_6_0330230.png" /></td><td>-0,33 - -0,23</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeVegetacion_6_0230131.png" /></td><td>-0,23 - -0,13</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeVegetacion_6_0130032.png" /></td><td>-0,13 - -0,03</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeVegetacion_6_0030063.png" /></td><td>-0,03 - 0,06</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeVegetacion_6_0060164.png" /></td><td>0,06 - 0,16</td></tr></table>': layer_LaneLateEvolucionIndicedeVegetacion_6,'Salustiana - Evolucion Indice de vegetacion<br /><table><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndicedevegetacion_5_0380280.png" /></td><td>-0,38 - -0,28</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndicedevegetacion_5_0280181.png" /></td><td>-0,28 - -0,18</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndicedevegetacion_5_0180082.png" /></td><td>-0,18 - -0,08</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndicedevegetacion_5_0080023.png" /></td><td>-0,08 - 0,02</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndicedevegetacion_5_0020124.png" /></td><td>0,02 - 0,12</td></tr></table>': layer_SalustianaEvolucionIndicedevegetacion_5,'Lane Late - Indice de Humedad<br /><table><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeHumedad_4_0090000.png" /></td><td>-0,09 - 0,00</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeHumedad_4_0000081.png" /></td><td>0,00 - 0,08</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeHumedad_4_0080172.png" /></td><td>0,08 - 0,17</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeHumedad_4_0170253.png" /></td><td>0,17 - 0,25</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateIndicedeHumedad_4_0250344.png" /></td><td>0,25 - 0,34</td></tr></table>': layer_LaneLateIndicedeHumedad_4,'Salustiana - Indice de Humedad<br /><table><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeHumedad_3_0130040.png" /></td><td>-0,13 - -0,04</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeHumedad_3_0040051.png" /></td><td>-0,04 - 0,05</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeHumedad_3_0050152.png" /></td><td>0,05 - 0,15</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeHumedad_3_0150243.png" /></td><td>0,15 - 0,24</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaIndicedeHumedad_3_0240344.png" /></td><td>0,24 - 0,34</td></tr></table>': layer_SalustianaIndicedeHumedad_3,'Lane Late - Evolucion Indice de Humedad<br /><table><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeHumedad_2_0360280.png" /></td><td>-0,36 - -0,28</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeHumedad_2_0280201.png" /></td><td>-0,28 - -0,20</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeHumedad_2_0200122.png" /></td><td>-0,20 - -0,12</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeHumedad_2_0120043.png" /></td><td>-0,12 - -0,04</td></tr><tr><td style="text-align: center;"><img src="legend/LaneLateEvolucionIndicedeHumedad_2_0040054.png" /></td><td>-0,04 - 0,05</td></tr></table>': layer_LaneLateEvolucionIndicedeHumedad_2,'Salustiana - Evolucion Indice Humedad<br /><table><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndiceHumedad_1_0390310.png" /></td><td>-0,39 - -0,31</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndiceHumedad_1_0310241.png" /></td><td>-0,31 - -0,24</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndiceHumedad_1_0240162.png" /></td><td>-0,24 - -0,16</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndiceHumedad_1_0160093.png" /></td><td>-0,16 - -0,09</td></tr><tr><td style="text-align: center;"><img src="legend/SalustianaEvolucionIndiceHumedad_1_0090014.png" /></td><td>-0,09 - -0,01</td></tr></table>': layer_SalustianaEvolucionIndiceHumedad_1,"Google Hybrid": layer_GoogleHybrid_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
